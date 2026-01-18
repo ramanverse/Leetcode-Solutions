@@ -1,0 +1,73 @@
+.stats-panel {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border: 4px solid #fff;
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.5);
+    font-family: var(--font-body);
+}
+
+.stats-category {
+    margin-bottom: 30px;
+}
+
+.category-title {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.skill-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.skill-name {
+    width: 200px;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.skill-bar-container {
+    flex-grow: 1;
+    height: 24px;
+    background: #000;
+    padding: 0;
+    position: relative;
+}
+
+/* Pipe Style Bar */
+.skill-bar {
+    height: 100%;
+    background: linear-gradient(to bottom, #00aa00 0%, #00ff00 20%, #00aa00 50%, #004400 100%);
+    width: 0%;
+    border-top: 2px solid #00ff00;
+    border-bottom: 2px solid #004400;
+    border-right: 4px solid #004400;
+    /* Pipe End Cap */
+    transition: width 1s steps(20);
+    position: relative;
+}
+
+/* Pipe Highlight */
+.skill-bar::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 0;
+    right: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.skill-value {
+    width: 50px;
+    text-align: right;
+    color: #fff;
+    font-size: 0.8rem;
+}

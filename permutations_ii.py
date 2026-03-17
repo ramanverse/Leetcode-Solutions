@@ -1,0 +1,19 @@
+class Solution(object):
+    def permuteUnique(self, nums):
+        nums.sort()
+        ans = []
+        self._permuteUnique(nums, [], ans)
+        return ans
+
+    def _permuteUnique(self, nums, cur, ans):
+        if len(nums) == 0:
+            ans.append(cur[:])
+            return
+        
+        for i, num in enumerate(nums):
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+            
+            cur.append(num)
+            self._permuteUnique(nums[:i] + nums[i + 1:], cur, ans)
+            cur.pop()

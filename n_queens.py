@@ -1,0 +1,26 @@
+class Solution(object):
+    def solveNQueens(self, n):
+        ans = []
+        self._solveNQueens(n, [], [], [], ans)
+        ans = [['.' * i + 'Q' + '.' * (n - i - 1) for i in t] for t in ans]
+        return ans
+
+    def _solveNQueens(self, n, xysum, xydiff, cur, ans):
+        cur_row = len(cur)
+        
+        if cur_row == n:
+            ans.append(cur)
+            return
+        
+        for col in range(n):
+            if (col not in cur and
+                cur_row + col not in xysum and
+                cur_row - col not in xydiff):
+                
+                self._solveNQueens(
+                    n,
+                    xysum + [cur_row + col],
+                    xydiff + [cur_row - col],
+                    cur + [col],
+                    ans
+                )

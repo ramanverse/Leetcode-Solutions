@@ -1,0 +1,34 @@
+class Solution(object):
+    def isNumber(self, s):
+        s = s.strip()
+        index = 0
+        
+        if index < len(s) and (s[index] == "+" or s[index] == "-"):
+            index += 1
+        
+        num_flag = False
+        
+        while index < len(s) and s[index].isdigit():
+            num_flag = True
+            index += 1
+        
+        if index < len(s) and s[index] == ".":
+            index += 1
+            while index < len(s) and s[index].isdigit():
+                num_flag = True
+                index += 1
+        
+        exp_flag = True
+        
+        if num_flag and index < len(s) and s[index] == "e":
+            index += 1
+            exp_flag = False
+            
+            if index < len(s) and (s[index] == "+" or s[index] == "-"):
+                index += 1
+            
+            while index < len(s) and s[index].isdigit():
+                exp_flag = True
+                index += 1
+        
+        return num_flag and exp_flag and index == len(s)
